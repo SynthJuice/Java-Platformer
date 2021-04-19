@@ -8,6 +8,8 @@ public class GameClient {
 	
 	protected Socket socket;
 	
+	// Figure out what format the data should be in
+	
 	public GameClient(String IP, int port) {
 		try {
 			socket = new Socket(IP, port);
