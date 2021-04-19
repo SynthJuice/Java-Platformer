@@ -82,6 +82,7 @@ public class Platformer extends Canvas implements Runnable {
 				fps = 0;
 			}
 		}
+		
 		try {
 			thread.join();
 		} catch (InterruptedException e) {
@@ -105,6 +106,9 @@ public class Platformer extends Canvas implements Runnable {
 		}
 		
 		map.update(g, UNIT_SIZE, SCALE);
+		
+		// The server should be updated after all the other things have been updated.
+		// In the future, to minimize delay, the update function should be split into render and tick, so the server doesn't have to wait for the screen to be drawn
 		
 		g.dispose();
 		bs.show();
