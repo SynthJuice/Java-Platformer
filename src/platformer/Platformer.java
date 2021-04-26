@@ -14,7 +14,7 @@ public class Platformer extends Canvas implements Runnable {
 	
 	private static final long serialVersionUID = -380315508131536919L;
 	
-	public static int SCALE = 4, UNIT_SIZE = 16;
+	public static int SCALE = 5, UNIT_SIZE = 16;
 	public static float TICK_RATE = 64, GRAVITY = 9.82f;
 	public static String NAME = "Platformer", VERSION = "0.1", TITLE = NAME + " V" + VERSION;
 
@@ -31,7 +31,7 @@ public class Platformer extends Canvas implements Runnable {
 	
 	public Platformer() {
 		try {
-			map = new Map(MapLoader.loadMap("res/maps/map0.platmap"), SCALE);
+			map = MapLoader.loadMap("res/maps/map0.platmap");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -7,10 +7,10 @@ public class InputHandler implements KeyListener {
 
 	public static boolean[] WASD = new boolean[4];
 	
+	public static boolean ESC = false;
+	
 	@Override
-	public void keyTyped(KeyEvent e) {
-		
-	}
+	public void keyTyped(KeyEvent e) { }
 
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -26,6 +26,9 @@ public class InputHandler implements KeyListener {
 			break;
 		case KeyEvent.VK_D:
 			WASD[3] = true;
+			break;
+		case KeyEvent.VK_ESCAPE:
+			ESC = true;
 			break;
 		}
 	}
@@ -44,6 +47,9 @@ public class InputHandler implements KeyListener {
 			break;
 		case KeyEvent.VK_D:
 			WASD[3] = false;
+			break;
+		case KeyEvent.VK_ESCAPE:
+			ESC = false;
 			break;
 		}
 	}

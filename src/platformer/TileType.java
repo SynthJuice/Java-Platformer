@@ -23,12 +23,36 @@ public enum TileType {
 	OutBM('G', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 16, 64, Platformer.UNIT_SIZE)),
 	OutBR('H', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 32, 64, Platformer.UNIT_SIZE)),
 	
-	AcidT('~', TextureLoader.loadAnimation("res/textures/acid_animation.png", 16, 16)), // Animations don't work properly, as they update faster relative to the amount of this tile used in the map
+	AcidT('~', TextureLoader.loadAnimation("res/textures/acid_animation.png", 16, 16)),
 	AcidB('_', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 48, 64, Platformer.UNIT_SIZE)),
 	
-	Box1('V', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 80, 96, Platformer.UNIT_SIZE)),
+	HangITL('q', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 80, 0, Platformer.UNIT_SIZE)),
+	HangIT ('w', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 96, 0, Platformer.UNIT_SIZE)),
+	HangITR('e', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 112, 0, Platformer.UNIT_SIZE)),
+	HangIML('a', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 80, 16, Platformer.UNIT_SIZE)),
+	HangIMR('d', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 112, 16, Platformer.UNIT_SIZE)),
+	HangIBL('z', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 80, 32, Platformer.UNIT_SIZE)),
+	HangIBM('x', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 96, 32, Platformer.UNIT_SIZE)),
+	HangIBR('c', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 112, 32, Platformer.UNIT_SIZE)),
+	HangOTL('r', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 80, 48, Platformer.UNIT_SIZE)),
+	HangOT ('t', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 96, 48, Platformer.UNIT_SIZE)),
+	HangOTR('y', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 112, 48, Platformer.UNIT_SIZE)),
+	HangOML('f', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 80, 64, Platformer.UNIT_SIZE)),
+	HangOMR('h', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 112, 64, Platformer.UNIT_SIZE)),
+	HangOBL('v', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 80, 80, Platformer.UNIT_SIZE)),
+	HangOBM('b', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 96, 80, Platformer.UNIT_SIZE)),
+	HangOBR('n', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 112, 80, Platformer.UNIT_SIZE)),
+	
+	Box1 ('V', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 80, 96, Platformer.UNIT_SIZE)),
 	Box2V('B', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 96, 96, Platformer.UNIT_SIZE)),
-	Box2H('N', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 112, 96, Platformer.UNIT_SIZE));
+	Box2H('N', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 112, 96, Platformer.UNIT_SIZE)),
+	
+	LadderT(':', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 64, 32, Platformer.UNIT_SIZE)),
+	LadderM('|', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 64, 48, Platformer.UNIT_SIZE)),
+	LadderB(';', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 64, 64, Platformer.UNIT_SIZE)),
+	
+	Background0('0', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 0, 80, Platformer.UNIT_SIZE)),
+	Background1('1', TextureLoader.loadSubTexture("res/textures/spritesheet.png", 16, 80, Platformer.UNIT_SIZE));
 	
 	public final char character;
 	public final Texture texture;

@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class MapLoader {
 	
-	public static char[][] loadMap(String path) throws IOException {
+	public static Map loadMap(String path) throws IOException {
 		File file = new File(path);
 		if (file.exists()) {
 			BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -16,17 +16,25 @@ public class MapLoader {
 			int width = Integer.parseInt(line.split("x")[0]), height = Integer.parseInt(line.split("x")[1]);
 			char[][] mapArray = new char[width][height];
 			line = reader.readLine();
-			int y = 0;
-			while (line != null) {
-				for (int x = 0; x < width; x++) {
+			for (int y = 0; y < height; ++y) {
+				for (int x = 0; x < width; ++x) {
 					mapArray[x][y] = line.charAt(x);
 				}
-				++y;
+				line = reader.readLine();
+			}
+
+			line = reader.readLine();
+			
+			char[][] backgroundArray = new char[width][height];
+			for (int y = 0; y < height; ++y) {
+				for (int x = 0; x < width; ++x) {
+					backgroundArray[x][y] = line.charAt(x);
+				}
 				line = reader.readLine();
 			}
 			reader.close();
 			
-			return mapArray;
+			return new Map(mapArray, backgroundArray, Platformer.SCALE);
 		} else {
 			throw new FileNotFoundException();
 		}
