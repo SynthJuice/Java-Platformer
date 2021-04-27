@@ -11,8 +11,16 @@ public class Texture {
 		this.image = image;
 	}
 	
-	public void update(Graphics g, int x, int y, int unitSize, int scale) {
-		g.drawImage(image, x * unitSize * scale, y * unitSize * scale, unitSize * scale, unitSize * scale, null);
+	public void update(Graphics g, int x, int y, int scale) {
+		g.drawImage(image, x, y, Platformer.UNIT_SIZE * scale, Platformer.UNIT_SIZE * scale, null);
+	}
+	
+	public int getWidth() {
+		return image.getWidth();
+	}
+	
+	public int getHeight() {
+		return image.getHeight();
 	}
 
 }

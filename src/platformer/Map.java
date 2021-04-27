@@ -4,8 +4,6 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
-import platformer.entities.Entity;
-
 public class Map {
 	
 	private int width, height, scale;
@@ -30,27 +28,47 @@ public class Map {
 		this.backgroundArray = backgroundArray;
 		this.entityList = new ArrayList<Entity>();
 		
+		entityList.add(new ObjectiveEntity(200, 200, TextureLoader.loadSubTexture("res/textures/spritesheet.png", 16, 96, Platformer.UNIT_SIZE), this));
+		
 		System.out.println("MAP : " + width + " x " + height);
 		System.out.println();
 		print();
 	}
 	
-	public void update(Graphics g, int unitSize, int scale) {
+	public Map(char[][] mapArray, char[][] backgroundArray, ArrayList<Entity> entityList, int scale) {
+		this.width = mapArray.length;
+		this.height = mapArray[0].length;
+		this.scale = scale;
+		this.mapArray = mapArray;
+		this.backgroundArray = backgroundArray;
+		this.entityList = entityList;
+		
+		System.out.println("MAP : " + width + " x " + height);
+		System.out.println();
+		print();
+	}
+	
+	public void update(Graphics g, int scale) {
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
 				TileType tile = TileType.getTileType(backgroundArray[x][y]);
 				if (tile != null) {
-					tile.texture.update(g, x, y, unitSize, scale);
+					tile.texture.update(g, x * Platformer.UNIT_SIZE * Platformer.SCALE, y * Platformer.UNIT_SIZE * scale, scale);
 				}
 			}
 		}
+		
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
 				TileType tile = TileType.getTileType(mapArray[x][y]);
 				if (tile != null) {
-					tile.texture.update(g, x, y, unitSize, scale);
+					tile.texture.update(g, x * Platformer.UNIT_SIZE * Platformer.SCALE, y * Platformer.UNIT_SIZE * scale, scale);
 				}
 			}
+		}
+		
+		for (Entity entity : entityList) {
+			entity.tick(g, scale);
 		}
 	}
 	

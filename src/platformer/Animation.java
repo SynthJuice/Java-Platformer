@@ -31,8 +31,9 @@ public class Animation extends Texture {
 		}
 	}
 	
-	public void update(Graphics g, int x, int y, int unitSize, int scale) {
-		g.drawImage(images[index], x * unitSize * scale, y * unitSize * scale, unitSize * scale, unitSize * scale, null);
+	@Override
+	public void update(Graphics g, int x, int y, int scale) {
+		g.drawImage(images[index], x, y, Platformer.UNIT_SIZE * scale, Platformer.UNIT_SIZE * scale, null);
 	}
 
 }
